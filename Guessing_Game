@@ -1,7 +1,9 @@
 # This is a guessing game with a limited number of attempts
+# I've added a way to avoid repeating the same guess
 password = 'Pyramid'
 
 guess = ''
+guesses = []
 tries = 0
 guess_max = 3
 out_of_guess = False
@@ -10,9 +12,15 @@ while guess != password and not out_of_guess:
     if tries < guess_max:
         guess = input('What is your guess? ')
         tries = tries + 1
+        if guess in guesses:
+                print('Make sure you enter a different guess!')
+                tries = tries - 1
+                continue
+        guesses.append(guess)
     else:
         out_of_guess = True
 if out_of_guess:
     print('After '+ str(tries) + ' tries you\'ve guessed incorrectly.\nYou lose!')
 else:
     print('You\'ve guessed correctly.\nYou win!')
+print(guesses)
