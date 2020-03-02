@@ -1,0 +1,15 @@
+# This is a calculator that +, -, *, /
+
+num1=input('Enter a number: ')
+op=input('Enter the operation you would want to make: ')
+num2=input('Enter a second number: ')
+
+if op == '+':
+    result= float(num1)+float(num2)
+elif op == '-':
+    result = float(num1) - float(num2)
+elif op == '*':
+    result = float(num1) * float(num2)
+elif op == '/':
+    result = float(num1) / float(num2)
+print('The result of your operations is: ' + str(result))
