@@ -1,0 +1,28 @@
+# This programs finds any power, including decimal, i.e. powers and roots
+
+def power(base, exp):
+    result = 1
+    for i in range(exp):
+        result = result * base
+    return result
+
+def root_func(base, root):
+    result=base**(1/root)
+    return result
+
+base = float(input('Enter the base: '))
+exp_root = float(input('Enter power: '))
+
+# This method makes the code to lag
+#exp_fraction = (exp_root).as_integer_ratio()
+#exp = exp_fraction[0]
+#root = exp_fraction[1]
+
+myNum = str(exp_root)
+exp_ten = int(len(myNum))-int(myNum.index('.'))-1
+exp = int(exp_root * power(10, exp_ten))
+root = int(power(10, exp_ten))
+power_only = power(base, exp)
+total_result = root_func(power_only, root)
+
+print('The result is: ' + str(total_result))
